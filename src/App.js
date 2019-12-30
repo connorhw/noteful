@@ -16,16 +16,12 @@ class App extends Component {
             exact 
             path='/'
             render={() => 
+              <>
               <FoldersList store={STORE}/>
+              <NoteList store={STORE}/>
+              </>
               }
           />
-          {/*<Route
-            exact 
-            path='/'
-            render={() =>
-              <NoteList store={STORE}/>
-              }
-            />*/}
         </div>
       </main>
     );
