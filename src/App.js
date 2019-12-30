@@ -8,6 +8,7 @@ import './App.css'
 class App extends Component {
   render() {
     return (
+      
       <main className='App'>
         <h1>Noteful</h1>
         <div className='content'>
@@ -15,12 +16,16 @@ class App extends Component {
             exact 
             path='/'
             render={() => 
-              <>
               <FoldersList store={STORE}/>
-              <NoteList store={STORE}/>
-              </>
               }
           />
+          {/*<Route
+            exact 
+            path='/'
+            render={() =>
+              <NoteList store={STORE}/>
+              }
+            />*/}
         </div>
       </main>
     );
