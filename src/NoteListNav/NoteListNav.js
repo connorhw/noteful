@@ -1,14 +1,14 @@
 import React from 'react';
 import Note from '../Note/Note'
-import '../NoteList/NoteList.css'
+import '../NoteListNav/NoteListNav.css'
 import store from '../store';
 
-export default function NoteList(props) {
+export default function NoteListNav(props) {
     //const { folders } = this.props
     return (
-        <section className='NoteList'>
+        <section className='NoteListNav'>
             <h3>Notes go here!</h3>
-            <ul className='note-list'>
+            <ul className='note-list-nav'>
                 {store.notes.map(note =>
                     <li key={note.id}>
                         <Note
@@ -23,7 +23,7 @@ export default function NoteList(props) {
     )
 }
 
-NoteList.defaultProps = {
+NoteListNav.defaultProps = {
     notes: [],
 }
 

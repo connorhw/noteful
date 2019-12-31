@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
-import FoldersList from './FoldersList/FoldersList'
-import NoteList from './NoteList/NoteList'
+import { Route, Link } from 'react-router-dom'
+import FoldersListNav from './FoldersListNav/FoldersListNav'
+import NoteListNav from './NoteListNav/NoteListNav'
 import STORE from './store'
 import './App.css'
 
 class App extends Component {
   render() {
     return (
-      
       <main className='App'>
-        <h1>Noteful</h1>
+        <Link to={'/'}>
+          <h1>Noteful</h1>
+        </Link>
         <div className='content'>
           <Route
             exact 
             path='/'
             render={() => 
               <>
-              <FoldersList store={STORE}/>
-              <NoteList store={STORE}/>
+              <FoldersListNav store={STORE}/>
+              <NoteListNav store={STORE}/>
               </>
               }
           />
