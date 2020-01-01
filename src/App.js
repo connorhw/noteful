@@ -5,6 +5,12 @@ import NoteListNav from './NoteListNav/NoteListNav'
 import STORE from './store'
 import './App.css'
 
+const searchFolderId = ({match}) => (
+  <div>
+    <h3>ID: {match.params.folderId}</h3>
+  </div>
+)
+
 class App extends Component {
   render() {
     return (
@@ -24,11 +30,8 @@ class App extends Component {
               }
           />
           <Route 
-            path='/folder/folderId'
-            folderId={folderId}
-            render={
-              
-            }
+            path='/folder/:folderId'
+            component={searchFolderId}
           />
         </div>
       </main>
