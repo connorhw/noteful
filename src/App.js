@@ -23,6 +23,13 @@ class App extends Component {
               </>
               }
           />
+          <Route 
+            path='/folder/folderId'
+            folderId={folderId}
+            render={
+              
+            }
+          />
         </div>
       </main>
     );
