@@ -4,19 +4,23 @@ import FoldersListNav from './FoldersListNav/FoldersListNav'
 import NoteListNav from './NoteListNav/NoteListNav'
 import STORE from './store'
 import './App.css'
+import Note from './Note/Note'
 
-/*
-const filteredList = STORE.notes.filter(note => {
-  console.log(note, this.props.match.params.folderId)
-})
-*/
+const SearchFolderId = ({match, store}) => {
+  const notes = store.notes.filter((note) => {
+    return match.params.folderId === note.folderId
+  });
 
-const SearchFolderId = ({match}) => (
-  <div>
-    <h3>ID: {match.params.folderId}</h3>
-    {/*filteredList*/}
-  </div>
-)
+  return (
+    <div>
+      <h3>ID: {match.params.folderId}</h3>
+
+      {notes.map((note) => {
+        return <Note declare some props here />
+      })}
+    </div>
+  );
+}
 
 class App extends Component {
   render() {
@@ -38,7 +42,11 @@ class App extends Component {
           />
           <Route 
             path='/folder/:folderId'
-            component={SearchFolderId}
+            render={() => 
+            <SearchFolderId 
+              store={STORE}
+              />
+            }
           />
         </div>
       </main>
