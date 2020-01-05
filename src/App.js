@@ -5,23 +5,18 @@ import NoteListNav from './NoteListNav/NoteListNav'
 import STORE from './store'
 import './App.css'
 
+/*
 const filteredList = STORE.notes.filter(note => {
   console.log(note, this.props.match.params.folderId)
 })
+*/
 
 const SearchFolderId = ({match}) => (
   <div>
     <h3>ID: {match.params.folderId}</h3>
+    {/*filteredList*/}
   </div>
-
-  /*
-  const filteredList = STORE.notes.filter(note => {
-    console.log(note, this.props.match.params.folderId)
-  })
-  */
 )
-
-
 
 class App extends Component {
   render() {
