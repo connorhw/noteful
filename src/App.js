@@ -7,7 +7,7 @@ import './App.css'
 import Note from './Note/Note'
 
 const SearchFolderId = ({match, store}) => {
-  const notes = store.notes.filter((note, match) => {
+  const notes = store.notes.filter((note) => {
     return (match.params.folderId === note.folderId)
   });
 
