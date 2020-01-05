@@ -7,8 +7,8 @@ import './App.css'
 import Note from './Note/Note'
 
 const SearchFolderId = ({match, store}) => {
-  const notes = store.notes.filter((note) => {
-    return match.params.folderId === note.folderId
+  const notes = store.notes.filter((note, match) => {
+    return (match.params.folderId === note.folderId)
   });
 
   return (
@@ -22,6 +22,17 @@ const SearchFolderId = ({match, store}) => {
   );
 }
 
+/*
+const SearchFolderId = ({match}) => {
+  console.log(match.params.folderId);
+
+  return (
+    <div>
+      <h3>ID: {match.params.folderId}</h3>
+    </div>
+  );
+}
+*/
 class App extends Component {
   render() {
     return (
@@ -42,6 +53,7 @@ class App extends Component {
           />
           <Route 
             path='/folder/:folderId'
+            //component={SearchFolderId}
             render={() => 
             <SearchFolderId 
               store={STORE}
