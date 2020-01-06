@@ -6,8 +6,10 @@ export default function Note(props) {
     return (
         <div className='Note'>
             <Link to={`/note/${props.id}`}>
-              {props.name}
+              <p>{props.name}</p>
+              {props.modified}
             </Link>
+            
         </div>
     );
 }

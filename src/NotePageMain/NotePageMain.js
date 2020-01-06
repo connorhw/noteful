@@ -1,10 +1,10 @@
 import React from 'react'
-import Note from '../Note/Note'
+//import Note from '../Note/Note'
 
 export default function NotePageMain(props) {
     return (
         <section className='NotePageMain'>
-            <Note />
+            {console.log(props.note)}
         </section>
     );
 }

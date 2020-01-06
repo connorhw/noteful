@@ -14,7 +14,7 @@ export default function NoteListNav(props) {
                         <Note
                           id={note.id}
                           name={note.name}
-                          //modified={note.modified}
+                          modified={note.modified}
                         />
                     </li>
                 )}

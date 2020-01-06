@@ -5,35 +5,38 @@ import NoteListNav from './NoteListNav/NoteListNav'
 import STORE from './store'
 import './App.css'
 import Note from './Note/Note'
+import NotePageMain from './NotePageMain/NotePageMain';
 
 const SearchFolderId = ({match, store}) => {
   const notes = store.notes.filter((note) => {
     return (match.params.folderId === note.folderId)
   });
-
+  /*
+  const findNote = (notes=[], noteId) => {
+    notes.find(note => note.id === noteId)
+  }
+  */
   return (
-    <div>
-      <h3>ID: {match.params.folderId}</h3>
-
-      {notes.map((note) => {
-        return <Note declare some props here />
-      })}
-    </div>
+    <section className='NoteListByFolder'>
+      {console.log(notes)}
+      <h3>Notes for folder: </h3>
+      <ul className='note-list-by-folder'>
+        {notes.map( note => 
+          <li key={note.id}>
+            <Note 
+              id={note.id}
+              name={note.name}
+              modified={note.modified}
+            />
+          </li>
+        )}
+      </ul>
+    </section>
   );
 }
 
-/*
-const SearchFolderId = ({match}) => {
-  console.log(match.params.folderId);
-
-  return (
-    <div>
-      <h3>ID: {match.params.folderId}</h3>
-    </div>
-  );
-}
-*/
 class App extends Component {
+  
   render() {
     return (
       <main className='App'>
@@ -53,12 +56,23 @@ class App extends Component {
           />
           <Route 
             path='/folder/:folderId'
-            //component={SearchFolderId}
-            render={(match) => (
-            <SearchFolderId 
-              store={STORE}
-              {...match}
+            render={routeProps => (
+              <>
+              <FoldersListNav store={STORE}/>
+              <SearchFolderId 
+                store={STORE}
+                {...routeProps}
               />
+              </>
+            )}
+          />
+          <Route
+            path='/note/:noteId'
+            render={routeProps => (
+              <>
+              <FoldersListNav store={STORE}/>
+              <NotePageMain {...routeProps}/>
+              </>
             )}
           />
         </div>
