@@ -10,12 +10,13 @@ import NotePageMain from './NotePageMain/NotePageMain';
 const SearchFolderId = ({match, store}) => {
   const notes = store.notes.filter((note) => {
     return (match.params.folderId === note.folderId)
-  });
-  /*
-  const findNote = (notes=[], noteId) => {
-    notes.find(note => note.id === noteId)
-  }
-  */
+  })
+/*  
+const findNote = (notes, noteId) => {
+  notes.find(note => note.id === noteId)
+  console.log(note)
+}
+*/  
   return (
     <section className='NoteListByFolder'>
       {console.log(notes)}
@@ -36,7 +37,15 @@ const SearchFolderId = ({match, store}) => {
 }
 
 class App extends Component {
-  
+/*
+  constructor(props) {
+    super(props);
+    this.state = {
+        notes:[]
+    }
+  } 
+*/
+
   render() {
     return (
       <main className='App'>
@@ -71,7 +80,10 @@ class App extends Component {
             render={routeProps => (
               <>
               <FoldersListNav store={STORE}/>
-              <NotePageMain {...routeProps}/>
+              <NotePageMain 
+                store={STORE}
+                {...routeProps}
+              />
               </>
             )}
           />

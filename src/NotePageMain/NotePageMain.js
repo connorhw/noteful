@@ -1,12 +1,19 @@
 import React from 'react'
-//import Note from '../Note/Note'
 
-export default function NotePageMain(props) {
+export default function NotePageMain({match, store}) {
+    //const SelectedNote = ({match, store}) => {
+      const selected = store.notes.find((note) => {
+        console.log(typeof match.params.noteId, typeof note.id);
+        return (match.params.noteId === note.id) 
+      })
+    
+
     return (
         <section className='NotePageMain'>
-            {console.log(props.note)}
+           {console.log(selected)}
         </section>
     );
+ 
 }
 
 NotePageMain.defaultProps = {
