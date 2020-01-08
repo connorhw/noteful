@@ -6,14 +6,12 @@ export default function NotePageMain({match, store}) {
         console.log(typeof match.params.noteId, typeof note.id);
         return (match.params.noteId === note.id) 
       })
-    
-
+      
     return (
         <section className='NotePageMain'>
            {console.log(selected)}
         </section>
     );
- 
 }
 
 NotePageMain.defaultProps = {

@@ -35,27 +35,24 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        //notes:[],
-        //folders:[],
+        notes:[],
+        folders:[],
     }
   } 
 
-/*
   componentDidMount() {
-    setNotes(notes) {
-      this.setState({notes});
-    }
+    this.setNotes(STORE.notes);
+    this.setFolders(STORE.folders);
   }
-*/  
-    /*
-    setNotes(notes) {
-      this.setState({notes});
+    
+  setNotes(notes) {
+    this.setState({notes});
+  }
+  setFolders(folders) {
+    this.setState({folders});
+  }
 
-    setFolders(folders) {
-      this.setState({folders});
-    }
-    */
-  
+
 
   render() {
     return (
@@ -69,8 +66,8 @@ class App extends Component {
             path='/'
             render={() => 
               <>
-              <FoldersListNav store={STORE}/>
-              <NoteListNav store={STORE}/>
+                <FoldersListNav folders={this.state.folders} />
+                <NoteListNav notes={this.state.notes} />
               </>
               }
           />
