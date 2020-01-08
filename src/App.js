@@ -11,12 +11,7 @@ const SearchFolderId = ({match, store}) => {
   const notes = store.notes.filter((note) => {
     return (match.params.folderId === note.folderId)
   })
-/*  
-const findNote = (notes, noteId) => {
-  notes.find(note => note.id === noteId)
-  console.log(note)
-}
-*/  
+
   return (
     <section className='NoteListByFolder'>
       {console.log(notes)}
@@ -37,14 +32,30 @@ const findNote = (notes, noteId) => {
 }
 
 class App extends Component {
-/*
   constructor(props) {
     super(props);
     this.state = {
-        notes:[]
+        //notes:[],
+        //folders:[],
     }
   } 
-*/
+
+/*
+  componentDidMount() {
+    setNotes(notes) {
+      this.setState({notes});
+    }
+  }
+*/  
+    /*
+    setNotes(notes) {
+      this.setState({notes});
+
+    setFolders(folders) {
+      this.setState({folders});
+    }
+    */
+  
 
   render() {
     return (
@@ -92,5 +103,5 @@ class App extends Component {
     );
   }
 }
-
+//toLocaleString() --readable date method
 export default App;
