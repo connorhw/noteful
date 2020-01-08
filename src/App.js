@@ -40,19 +40,18 @@ class App extends Component {
     }
   } 
 
-  componentDidMount() {
-    this.setNotes(STORE.notes);
-    this.setFolders(STORE.folders);
-  }
-    
   setNotes(notes) {
     this.setState({notes});
   }
+
   setFolders(folders) {
     this.setState({folders});
   }
 
-
+  componentDidMount() {
+    this.setNotes(STORE.notes);
+    this.setFolders(STORE.folders);
+  }
 
   render() {
     return (
@@ -66,6 +65,8 @@ class App extends Component {
             path='/'
             render={() => 
               <>
+              {console.log(this.state.folders)}
+              {console.log(this.state.notes)}
                 <FoldersListNav folders={this.state.folders} />
                 <NoteListNav notes={this.state.notes} />
               </>
