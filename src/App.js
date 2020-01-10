@@ -14,7 +14,6 @@ const SearchFolderId = ({match, store}) => {
 
   return (
     <section className='NoteListByFolder'>
-      {console.log(notes)}
       <h3>Notes for folder: </h3>
       <ul className='note-list-by-folder'>
         {notes.map( note => 
@@ -65,8 +64,6 @@ class App extends Component {
             path='/'
             render={() => 
               <>
-              {console.log(this.state.folders)}
-              {console.log(this.state.notes)}
                 <FoldersListNav folders={this.state.folders} />
                 <NoteListNav notes={this.state.notes} />
               </>
@@ -76,7 +73,7 @@ class App extends Component {
             path='/folder/:folderId'
             render={routeProps => (
               <>
-              <FoldersListNav store={STORE}/>
+              <FoldersListNav folders={this.state.folders} />
               <SearchFolderId 
                 store={STORE}
                 {...routeProps}
@@ -88,7 +85,7 @@ class App extends Component {
             path='/note/:noteId'
             render={routeProps => (
               <>
-              <FoldersListNav store={STORE}/>
+              <FoldersListNav folders={this.state.folders} />
               <NotePageMain 
                 store={STORE}
                 {...routeProps}

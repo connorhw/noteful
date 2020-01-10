@@ -6,7 +6,7 @@ import '../NoteListNav/NoteListNav.css'
 export default function NoteListNav(props) {
     return (
         <section className='NoteListNav'>
-            <h3>Notes go here!</h3>
+            <h3>All Notes!</h3>
             <ul className='note-list-nav'>
                 {props.notes.map(note =>
                     <li key={note.id}>
