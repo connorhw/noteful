@@ -6,6 +6,7 @@ import STORE from './store'
 import './App.css'
 import Note from './Note/Note'
 import NotePageMain from './NotePageMain/NotePageMain';
+//import NotesContext from './NotesContext';
 
 const SearchFolderId = ({match, store}) => {
   const notes = store.notes.filter((note) => {

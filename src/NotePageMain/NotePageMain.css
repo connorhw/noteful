@@ -1,5 +1,6 @@
-section {
-    border: 1px solid black;
-    width: 250px;
-    height: 300px;
+.NotePageMain {
+    float: left;
+    border: 5px solid blue;
+    width: 55%;
+    height: 80%;
 }

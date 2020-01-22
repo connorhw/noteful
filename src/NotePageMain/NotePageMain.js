@@ -1,4 +1,5 @@
 import React from 'react'
+import '../NotePageMain/NotePageMain.css'
 
 export default function NotePageMain({match, store}) {
       const selected = store.notes.find((note) => {
