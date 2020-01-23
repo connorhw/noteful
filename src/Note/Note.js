@@ -9,7 +9,6 @@ export default function Note(props) {
               <p>{props.name}</p>
               {props.modified}
             </Link>
-            
         </div>
     );
 }

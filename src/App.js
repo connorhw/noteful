@@ -4,32 +4,9 @@ import FoldersListNav from './FoldersListNav/FoldersListNav'
 import NoteListNav from './NoteListNav/NoteListNav'
 import STORE from './store'
 import './App.css'
-import Note from './Note/Note'
-import NotePageMain from './NotePageMain/NotePageMain';
+import NotePageMain from './NotePageMain/NotePageMain'
+import NotesInFolder from './NotesInFolder/NotesInFolder'
 //import NotesContext from './NotesContext';
-
-const SearchFolderId = ({match, store}) => {
-  const notes = store.notes.filter((note) => {
-    return (match.params.folderId === note.folderId)
-  })
-
-  return (
-    <section className='NoteListByFolder'>
-      <h3>Notes for folder: </h3>
-      <ul className='note-list-by-folder'>
-        {notes.map( note => 
-          <li key={note.id}>
-            <Note 
-              id={note.id}
-              name={note.name}
-              modified={note.modified}
-            />
-          </li>
-        )}
-      </ul>
-    </section>
-  );
-}
 
 class App extends Component {
   constructor(props) {
@@ -75,7 +52,7 @@ class App extends Component {
             render={routeProps => (
               <>
               <FoldersListNav folders={this.state.folders} />
-              <SearchFolderId 
+              <NotesInFolder 
                 store={STORE}
                 {...routeProps}
               />
