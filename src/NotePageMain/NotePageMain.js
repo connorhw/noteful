@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 import '../NotePageMain/NotePageMain.css'
 
-export default function NotePageMain({match, store}) {
-      const selected = store.notes.find((note) => {
-        return (match.params.noteId === note.id) 
-      })
-
+class NotePageMain extends Component {
+  render() {
+    const selected = this.props.store.notes.find((note) => {
+      return (this.props.match.params.noteId === note.id) 
+    })
     return (
         <section className='NotePageMain'>
            {console.log(selected)}
@@ -14,7 +14,10 @@ export default function NotePageMain({match, store}) {
             <p>{selected.content}</p>
         </section>
     );
+  }
 }
+
+export default NotePageMain;
 
 NotePageMain.defaultProps = {
     note: {

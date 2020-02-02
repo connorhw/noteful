@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
-import FoldersListNav from './FoldersListNav/FoldersListNav'
+//import FoldersListNav from './FoldersListNav/FoldersListNav'
 import NoteListNav from './NoteListNav/NoteListNav'
 import STORE from './store'
 import './App.css'
@@ -49,20 +49,32 @@ class App extends Component {
     return (
       <main className='App'>
         <NotesContext.Provider value={contextValue}>
-          <Nav />
+          <Nav folders={this.state.folders}/>
           <div className='content'>
             <Route
               exact 
               path='/'
-              components={{FoldersListNav, NoteListNav}}
+              render={() => 
+                  <NoteListNav notes={this.state.notes} />
+                }
             />
             <Route 
               path='/folder/:folderId'
-              components={{FoldersListNav, NotesInFolder}}
+              render={routeProps => (
+                <NotesInFolder 
+                  store={STORE}
+                  {...routeProps}
+                />
+              )}
             />
             <Route
               path='/note/:noteId'
-              components={{FoldersListNav, NotePageMain}}
+              render={routeProps => (
+                <NotePageMain 
+                  store={STORE}
+                  {...routeProps}
+                />
+              )}
             />
           </div>
         </NotesContext.Provider>
