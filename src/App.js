@@ -54,27 +54,15 @@ class App extends Component {
             <Route
               exact 
               path='/'
-              render={() => 
-                  <NoteListNav notes={this.state.notes} />
-                }
+              component={NoteListNav}
             />
             <Route 
               path='/folder/:folderId'
-              render={routeProps => (
-                <NotesInFolder 
-                  store={STORE}
-                  {...routeProps}
-                />
-              )}
+              component={NotesInFolder}
             />
             <Route
               path='/note/:noteId'
-              render={routeProps => (
-                <NotePageMain 
-                  store={STORE}
-                  {...routeProps}
-                />
-              )}
+              component={NotePageMain}
             />
           </div>
         </NotesContext.Provider>
