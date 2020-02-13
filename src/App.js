@@ -27,8 +27,15 @@ class App extends Component {
   }
 
   componentDidMount() {
+    /*
+    fetch(url, {
+      method: 'GET',
+      
+    })
+    */
     this.setNotes(STORE.notes);
     this.setFolders(STORE.folders);
+
   }
 
   deleteNote = noteId => {
@@ -37,6 +44,7 @@ class App extends Component {
     )
     this.setState({
       notes: newNotes
+
     })
   }
 

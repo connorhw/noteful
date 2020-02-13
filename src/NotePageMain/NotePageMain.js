@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import '../NotePageMain/NotePageMain.css'
+import NotesContext from '../NotesContext'
 
 class NotePageMain extends Component {
+  static contextType = NotesContext;
   render() {
-    const selected = this.props.store.notes.find((note) => {
+    const selected = this.context.notes.find((note) => {
       return (this.props.match.params.noteId === note.id) 
     })
     return (
