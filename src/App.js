@@ -27,14 +27,21 @@ class App extends Component {
   }
 
   componentDidMount() {
-    /*
+    const url = 'http://localhost:9090/folders'
     fetch(url, {
       method: 'GET',
-      
     })
-    */
+      .then(response => {
+        if(!response.ok) {
+          throw new Error(response.status)
+        }
+        return response.json()
+      })
+      
+    /*
     this.setNotes(STORE.notes);
     this.setFolders(STORE.folders);
+    */
 
   }
 
