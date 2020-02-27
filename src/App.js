@@ -17,17 +17,9 @@ class App extends Component {
         folders:[],
     }
   } 
-/*
-  setNotes(notes) {
-    this.setState({notes});
-  }
-
-  setFolders(folders) {
-    this.setState({folders});
-  }
-*/
+  
   componentDidMount() {
-    /*
+    
     const url = 'http://localhost:9090/folders'
     fetch(url, {
       method: 'GET',
@@ -36,16 +28,20 @@ class App extends Component {
         if(!response.ok) {
           throw new Error(response.status)
         }
-        return response.json()
+        const res = response.json()
+        console.log(res)
+        const initFolders = res;
+        return initFolders;
       })
-    */
-   
-    this.setState(STORE.notes);
-    this.setState(STORE.folders);
     
+    const initNotes = STORE.notes
+    //const initFolders = STORE.folders
 
+    this.setState({notes: initNotes})
+    this.setState({folders: initFolders})
+    
   }
-
+/*
   deleteNote = noteId => {
     const newNotes = this.state.notes.filter(n =>
       n.id !== noteId
@@ -55,7 +51,7 @@ class App extends Component {
 
     })
   }
-
+*/
   render() {
     const contextValue = {
       notes: this.state.notes,
