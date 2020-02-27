@@ -17,7 +17,7 @@ class App extends Component {
         folders:[],
     }
   } 
-
+/*
   setNotes(notes) {
     this.setState({notes});
   }
@@ -25,7 +25,7 @@ class App extends Component {
   setFolders(folders) {
     this.setState({folders});
   }
-
+*/
   componentDidMount() {
     /*
     const url = 'http://localhost:9090/folders'
@@ -38,10 +38,10 @@ class App extends Component {
         }
         return response.json()
       })
-      */
-    
-    this.setNotes(STORE.notes);
-    this.setFolders(STORE.folders);
+    */
+   
+    this.setState(STORE.notes);
+    this.setState(STORE.folders);
     
 
   }
