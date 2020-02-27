@@ -27,6 +27,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    /*
     const url = 'http://localhost:9090/folders'
     fetch(url, {
       method: 'GET',
@@ -37,11 +38,11 @@ class App extends Component {
         }
         return response.json()
       })
-      
-    /*
+      */
+    
     this.setNotes(STORE.notes);
     this.setFolders(STORE.folders);
-    */
+    
 
   }
 
