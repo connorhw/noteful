@@ -20,8 +20,8 @@ class App extends Component {
   
   componentDidMount() {
     
-    const url = 'http://localhost:9090/folders'
-    fetch(url, {
+    const folderUrl = 'http://localhost:9090/folders'
+    fetch(folderUrl, {
       method: 'GET',
     })
       .then(response => {
@@ -30,16 +30,34 @@ class App extends Component {
         }
         const res = response.json()
         console.log(res)
-        const initFolders = res;
-        return initFolders;
+        return res;
       })
-    
-    const initNotes = STORE.notes
-    //const initFolders = STORE.folders
+      .then(res => {
+        this.setState({
+       
+          folders: res
+        })
+      })
 
-    this.setState({notes: initNotes})
-    this.setState({folders: initFolders})
-    
+      const noteUrl = 'http://localhost:9090/notes'
+    fetch(noteUrl, {
+      method: 'GET',
+    })
+      .then(response => {
+        if(!response.ok) {
+          throw new Error(response.status)
+        }
+        const res = response.json()
+        console.log(res)
+        return res;
+      })
+      .then(res => {
+
+        this.setState({
+          notes: res
+        })
+      })
+
   }
 /*
   deleteNote = noteId => {
