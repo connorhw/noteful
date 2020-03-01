@@ -19,7 +19,6 @@ class App extends Component {
   } 
   
   componentDidMount() {
-    
     const folderUrl = 'http://localhost:9090/folders'
     fetch(folderUrl, {
       method: 'GET',
@@ -34,12 +33,11 @@ class App extends Component {
       })
       .then(res => {
         this.setState({
-       
           folders: res
         })
       })
 
-      const noteUrl = 'http://localhost:9090/notes'
+    const noteUrl = 'http://localhost:9090/notes'
     fetch(noteUrl, {
       method: 'GET',
     })
@@ -52,7 +50,6 @@ class App extends Component {
         return res;
       })
       .then(res => {
-
         this.setState({
           notes: res
         })

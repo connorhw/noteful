@@ -2,6 +2,17 @@ import React, { Component } from 'react'
 import '../NotePageMain/NotePageMain.css'
 import NotesContext from '../NotesContext'
 
+/*
+function deleteNoteRequest() {
+  const noteUrl = 'http://localhost:9090/notes'
+  fetch(noteUrl, {
+    method: 'DELETE',
+  })
+    //.then()
+    //.then()
+}
+*/
+
 class NotePageMain extends Component {
   static contextType = NotesContext;
   render() {
