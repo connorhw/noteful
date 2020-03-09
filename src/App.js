@@ -56,7 +56,7 @@ class App extends Component {
       })
 
   }
-/*
+
   deleteNote = noteId => {
     const newNotes = this.state.notes.filter(n =>
       n.id !== noteId
@@ -66,12 +66,13 @@ class App extends Component {
 
     })
   }
-*/
+
   render() {
     const contextValue = {
       notes: this.state.notes,
       folders: this.state.folders,
-      deleteNote: this.deleteNote,
+      deleteNoteRequest: this.deleteNote,
+      addNote: this.addNote
     }
     return (
       <main className='App'>
