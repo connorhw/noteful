@@ -8,6 +8,7 @@ import NotePageMain from './NotePageMain/NotePageMain'
 import NotesInFolder from './NotesInFolder/NotesInFolder'
 import Nav from './Nav/Nav'
 import NotesContext from './NotesContext';
+import AddFolder from './AddFolder/AddFolder';
 
 class App extends Component {
   constructor(props) {
@@ -91,6 +92,10 @@ class App extends Component {
             <Route
               path='/note/:noteId'
               component={NotePageMain}
+            />
+            <Route
+              path='/addFolder'
+              component={AddFolder}
             />
           </div>
         </NotesContext.Provider>
