@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
 //import FoldersListNav from './FoldersListNav/FoldersListNav'
 import NoteListNav from './NoteListNav/NoteListNav'
-import STORE from './store'
+//import STORE from './store'
 import './App.css'
 import NotePageMain from './NotePageMain/NotePageMain'
 import NotesInFolder from './NotesInFolder/NotesInFolder'

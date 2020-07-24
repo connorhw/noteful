@@ -5,6 +5,8 @@ class AddFolder extends Component{
     handleSubmit(event) {
         event.preventDefault();
         // process form values here
+        const name = event.target.name.value;
+        console.log('New Folder Name: ', name);
       }
     render() {
         return (
@@ -12,7 +14,7 @@ class AddFolder extends Component{
                 <h2>New Folder</h2>
                 <div className='form-group'>
                     <label htmlFor='new-folder-name'>Folder Name: </label>
-                    <input type="text" name='new-folder-name' id='new-folder-name'/>
+                    <input type="text" name='name' id='name'/>
                 </div>
                 <div className='button-group'>
                     <button type='submit'>Submit</button>
