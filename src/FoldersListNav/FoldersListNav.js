@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../FoldersListNav/FoldersListNav.css'
 import Folder from '../Folder/Folder';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 class  FoldersListNav extends Component{
     render() {
@@ -26,8 +28,11 @@ class  FoldersListNav extends Component{
 }
 
 export default FoldersListNav;
-/*
+
 FoldersListNav.defaultProps = {
     folders: [],
 }
-*/
+
+FoldersListNav.propTypes = {
+    folders: PropTypes.arrayOf(PropTypes.object)
+}

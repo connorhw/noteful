@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import '../AddFolder/AddFolder.css'
+import '../AddFolder/AddFolder.css';
+import PropTypes from 'prop-types';
 
 class AddFolder extends Component {
     handleSubmit(event) {
         event.preventDefault();
         // process form values here
-        //const {fName} = this.state;
         //console.log(this.props.folders)
         const folderName = event.target.folderName.value;
         console.log('New Folder Name: ', folderName);
@@ -31,17 +31,6 @@ class AddFolder extends Component {
             .then((data) => {
                 this.props.handleAdd(data);
             })
-            /*
-            .then(data => {
-                this.setState({
-                    name: this.folderName,
-                })
-                return this.props.folders
-            })
-            */
-            
-            
-            
     }
 
     render() {
@@ -61,3 +50,7 @@ class AddFolder extends Component {
 }
 
 export default AddFolder;
+
+AddFolder.propTypes = {
+    handleAdd: PropTypes.func
+}

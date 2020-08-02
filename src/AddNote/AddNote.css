@@ -1,5 +1,5 @@
 form {
-    display: inline-block;
+    display: inline-grid;
     padding-left: 8px
 }
 
@@ -8,4 +8,8 @@ button {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+form.addNote-form {
+    margin-top: 50px;
 }

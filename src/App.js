@@ -8,6 +8,7 @@ import Nav from './Nav/Nav'
 import NotesContext from './NotesContext';
 import AddFolder from './AddFolder/AddFolder';
 import AddNote from './AddNote/AddNote';
+import NotesError from './ErrorBoundaries/NotesError';
 
 class App extends Component {
   constructor(props) {
@@ -97,13 +98,21 @@ class App extends Component {
               path='/'
               component={NoteListNav}
             />
+            <NotesError>
+              <Route
+                path='/note/:noteId'
+                component={NotePageMain}
+              />
+              <Route
+                path='/addNote'
+                render={() => {
+                  return <AddNote folders={this.state.folders} handleAdd = {this.addNewNote}/>
+                }}
+              />
+            </NotesError>
             <Route 
               path='/folder/:folderId'
               component={NotesInFolder}
-            />
-            <Route
-              path='/note/:noteId'
-              component={NotePageMain}
             />
             <Route
               path='/addFolder'
@@ -111,12 +120,7 @@ class App extends Component {
                 return <AddFolder handleAdd = {this.addNewFolder}/>
               }}
             />
-            <Route
-              path='/addNote'
-              render={() => {
-                return <AddNote folders={this.state.folders} handleAdd = {this.addNewNote}/>
-              }}
-            />
+
           </div>
         </NotesContext.Provider>
       </main>

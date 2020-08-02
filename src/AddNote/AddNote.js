@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../AddNote/AddNote.css'
+import PropTypes from 'prop-types'
 
 class AddNote extends Component {
     handleSubmit(event) {
@@ -64,3 +65,8 @@ class AddNote extends Component {
 }
 
 export default AddNote;
+
+AddNote.propTypes = {
+    folders: PropTypes.arrayOf(PropTypes.object),
+    handleAdd: PropTypes.func
+}
