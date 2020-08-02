@@ -6,7 +6,7 @@ import NotesContext from '../NotesContext'
 class NotesInFolder extends Component {
     static contextType = NotesContext;
     render() {
-        console.log(this.context)
+        //console.log(this.context)
         const filteredNotes = this.context.notes.filter((note) => {
             return (this.props.match.params.folderId === note.folderId)
         })

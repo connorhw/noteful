@@ -1,27 +1,33 @@
-import React from 'react';
-//import Folder from '../Folder/Folder';
+import React, { Component } from 'react';
 import '../FoldersListNav/FoldersListNav.css'
 import Folder from '../Folder/Folder';
+import { Link } from 'react-router-dom';
 
-
-export default function FoldersListNav(props) {
-    return (
-        <section className='FoldersListNav'>
-            <h3>folders here!</h3>
-            <ul className='folders-list-nav'>
-                {props.folders.map(folder =>
-                <li key={folder.id}>
-                    <Folder
-                    id={folder.id}
-                    name={folder.name}
-                    />
-                </li>
-                )}
-            </ul>
-        </section>
-    )
+class  FoldersListNav extends Component{
+    render() {
+        //console.log(this.props.folders)
+        return (
+            <section className='FoldersListNav'>
+                <h3>folders here!</h3>
+                <ul className='folders-list-nav'>
+                    {this.props.folders.map(folder =>
+                    <li key={folder.id}>
+                        <Folder
+                        id={folder.id}
+                        name={folder.name}
+                        />
+                    </li>
+                    )}
+                </ul>
+                <Link to={'/addFolder'}>+New Folder</Link>
+            </section>
+        )
+    }
 }
 
+export default FoldersListNav;
+/*
 FoldersListNav.defaultProps = {
     folders: [],
 }
+*/

@@ -1,0 +1,11 @@
+form {
+    display: inline-block;
+    padding-left: 8px
+}
+
+button {
+    margin-top: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

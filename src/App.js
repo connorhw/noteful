@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
-//import FoldersListNav from './FoldersListNav/FoldersListNav'
 import NoteListNav from './NoteListNav/NoteListNav'
-//import STORE from './store'
 import './App.css'
 import NotePageMain from './NotePageMain/NotePageMain'
 import NotesInFolder from './NotesInFolder/NotesInFolder'
 import Nav from './Nav/Nav'
 import NotesContext from './NotesContext';
 import AddFolder from './AddFolder/AddFolder';
+import AddNote from './AddNote/AddNote';
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +28,7 @@ class App extends Component {
           throw new Error(response.status)
         }
         const res = response.json()
-        console.log(res)
+        //console.log(res)
         return res;
       })
       .then(res => {
@@ -68,12 +67,25 @@ class App extends Component {
     })
   }
 
+  addNewFolder = folderName => {
+    this.setState({
+      folders: [...this.state.folders, folderName]
+    })
+  }
+
+  addNewNote = noteName => {
+    this.setState({
+      notes: [...this.state.notes, noteName]
+    })
+  }
+
   render() {
+    //console.log(this.state.folders)
     const contextValue = {
       notes: this.state.notes,
       folders: this.state.folders,
       deleteNoteRequest: this.deleteNote,
-      addNote: this.addNote
+      //addNote: this.addNote
     }
     return (
       <main className='App'>
@@ -95,7 +107,15 @@ class App extends Component {
             />
             <Route
               path='/addFolder'
-              component={AddFolder}
+              render={() => {
+                return <AddFolder handleAdd = {this.addNewFolder}/>
+              }}
+            />
+            <Route
+              path='/addNote'
+              render={() => {
+                return <AddNote folders={this.state.folders} handleAdd = {this.addNewNote}/>
+              }}
             />
           </div>
         </NotesContext.Provider>
