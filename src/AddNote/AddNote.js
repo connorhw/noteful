@@ -6,6 +6,7 @@ class AddNote extends Component {
         event.preventDefault();
         const noteName = event.target.noteName.value;
         const noteContent = event.target.noteContent.value;
+        //console.log(event.target.noteContent);
         const noteFolder = event.target.noteFolder.value;
         const url = 'http://localhost:9090/notes';
         const options = {
@@ -33,26 +34,21 @@ class AddNote extends Component {
 
     render() {
 
-        console.log(this.props.folders)
-        
         let folderList = this.props.folders;
         let optionItems = folderList.map((item) => 
             <option key={item.id}>{item.name}</option>
         );
-        
-
-        
         return (
             <form className='addNote-form' onSubmit={e => this.handleSubmit(e)}>
                 <h2>New Note</h2>
                 <div className='form-group-name'>
                     <label>Name of Note: </label>
-                    <input name='noteName' id='noteContent' required/>
+                    <input name='noteName' id='noteName' required/>
                 </div>
                 <br />
                 <div className='form-group-content'>
                     <label>Content: </label>
-                    <textarea name='noteContent' type='text' cols="40" rows="5" required /><br />
+                    <textarea name='noteContent' id ='noteContent' type='text' cols="40" rows="5" required /><br />
                 </div>
                 <br />
                 <div className='form-group-folder'> 
