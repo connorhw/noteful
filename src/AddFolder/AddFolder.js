@@ -31,6 +31,9 @@ class AddFolder extends Component {
             .then((data) => {
                 this.props.handleAdd(data);
             })
+            .catch(error => {
+                document.getElementById("errors-here").innerHTML = error.message;
+            })
     }
 
     render() {
@@ -44,6 +47,7 @@ class AddFolder extends Component {
                 <div className='button-group'>
                     <button type='submit'>Submit</button>
                 </div>
+                <div id='errors-here'/>
             </form>
         )
     }

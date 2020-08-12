@@ -7,15 +7,19 @@ class AddNote extends Component {
         event.preventDefault();
         const noteName = event.target.noteName.value;
         const noteContent = event.target.noteContent.value;
-        //console.log(event.target.noteContent);
         const noteFolder = event.target.noteFolder.value;
+        let newFolder = this.props.folders.find((folder) => {
+            return folder.name == noteFolder;
+        })
+        console.log(newFolder);
+        console.log(this.props.folders)
         const url = 'http://localhost:9090/notes';
         const options = {
             method: 'POST',
             body: JSON.stringify({
                 "name": noteName,
                 "content": noteContent,
-                "folderId": noteFolder
+                "folderId": newFolder.id,
             }),
             headers: {
                 'content-type':'application/json',
@@ -30,6 +34,9 @@ class AddNote extends Component {
             })
             .then((data) => {
                 this.props.handleAdd(data);
+            })
+            .catch(error => {
+                document.getElementById("errors-here").innerHTML = error.message;
             })
     }
 
@@ -59,6 +66,7 @@ class AddNote extends Component {
                     </select>
                 </div>
                 <button type='submit'>Submit</button>
+                <div id='errors-here'/>
             </form>
         )
     }
