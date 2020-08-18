@@ -3,13 +3,17 @@ import '../AddNote/AddNote.css'
 import PropTypes from 'prop-types'
 
 class AddNote extends Component {
+    state = {
+        error: ''
+    }
+    
     handleSubmit(event) {
         event.preventDefault();
         const noteName = event.target.noteName.value;
         const noteContent = event.target.noteContent.value;
         const noteFolder = event.target.noteFolder.value;
         let newFolder = this.props.folders.find((folder) => {
-            return folder.name == noteFolder;
+            return folder.name === noteFolder;
         })
         console.log(newFolder);
         console.log(this.props.folders)
@@ -33,10 +37,16 @@ class AddNote extends Component {
                 return res.json()
             })
             .then((data) => {
-                this.props.handleAdd(data);
+                this.setState({
+                    error: ''
+                 }, () => {
+                   this.props.handleAdd(data)
+                 })
             })
             .catch(error => {
-                document.getElementById("errors-here").innerHTML = error.message;
+                this.setState({
+                    error: error.message
+                })
             })
     }
 
@@ -61,12 +71,14 @@ class AddNote extends Component {
                 <br />
                 <div className='form-group-folder'> 
                     <label>Choose a folder to put this in: </label>
-                    <select name='noteFolder' id='noteFolder'>
+                    <select name='noteFolder' id='noteFolder' required>
                         {optionItems}
                     </select>
                 </div>
                 <button type='submit'>Submit</button>
-                <div id='errors-here'/>
+                {
+                    this.state.error && <div id="errors-here">{this.state.error}</div>
+                }
             </form>
         )
     }

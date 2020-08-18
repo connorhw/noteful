@@ -3,10 +3,12 @@ import '../AddFolder/AddFolder.css';
 import PropTypes from 'prop-types';
 
 class AddFolder extends Component {
+    state = {
+        error: ''
+    }
+
     handleSubmit(event) {
         event.preventDefault();
-        // process form values here
-        //console.log(this.props.folders)
         const folderName = event.target.folderName.value;
         console.log('New Folder Name: ', folderName);
         
@@ -32,7 +34,9 @@ class AddFolder extends Component {
                 this.props.handleAdd(data);
             })
             .catch(error => {
-                document.getElementById("errors-here").innerHTML = error.message;
+                this.setState({
+                    error: error.message
+                })
             })
     }
 
@@ -47,7 +51,9 @@ class AddFolder extends Component {
                 <div className='button-group'>
                     <button type='submit'>Submit</button>
                 </div>
-                <div id='errors-here'/>
+                {
+                    this.state.error && <div id="errors-here">{this.state.error}</div>
+                }
             </form>
         )
     }
