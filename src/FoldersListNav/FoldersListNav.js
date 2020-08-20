@@ -10,7 +10,7 @@ class  FoldersListNav extends Component{
         //console.log(this.props.folders)
         return (
             <section className='FoldersListNav'>
-                <h3>folders here!</h3>
+                <h2>Folders!</h2>
                 <ul className='folders-list-nav'>
                     {this.props.folders.map(folder =>
                     <li key={folder.id}>

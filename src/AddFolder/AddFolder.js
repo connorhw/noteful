@@ -43,7 +43,7 @@ class AddFolder extends Component {
     render() {
         return (
             <form className='AddFolder-form' onSubmit={e => this.handleSubmit(e)}>
-                <h2>New Folder</h2>
+                <h3>New Folder</h3>
                 <div className='form-group'>
                     <label htmlFor='new-folder-name'>Folder Name: </label>
                     <input type="text" name='folderName' id='folderNname' required/>

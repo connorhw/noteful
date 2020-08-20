@@ -10,7 +10,7 @@ class NoteListNav extends Component {
         return (
             <section className='NoteListNav'>
                 <Link to='/AddNote'>+New Note</Link>
-                <h3>All Notes!</h3>
+                <h2>All Notes!</h2>
                 <ul className='note-list-nav'>
                     {this.context.notes.map(note =>
                         <li key={note.id}>

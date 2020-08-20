@@ -6,7 +6,7 @@ class AddNote extends Component {
     state = {
         error: ''
     }
-    
+
     handleSubmit(event) {
         event.preventDefault();
         const noteName = event.target.noteName.value;
@@ -58,7 +58,7 @@ class AddNote extends Component {
         );
         return (
             <form className='addNote-form' onSubmit={e => this.handleSubmit(e)}>
-                <h2>New Note</h2>
+                <h3>New Note</h3>
                 <div className='form-group-name'>
                     <label>Name of Note: </label>
                     <input name='noteName' id='noteName' required/>
