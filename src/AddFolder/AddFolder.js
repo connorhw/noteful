@@ -12,7 +12,7 @@ class AddFolder extends Component {
         const folderName = event.target.folderName.value;
         console.log('New Folder Name: ', folderName);
         
-        const url = 'http://localhost:9090/folders';
+        const url = 'http://localhost:8000/api/folders';
         const options = {
             method: 'POST',
             body: JSON.stringify({

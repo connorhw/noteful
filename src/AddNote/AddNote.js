@@ -17,7 +17,7 @@ class AddNote extends Component {
         })
         console.log(newFolder);
         console.log(this.props.folders)
-        const url = 'http://localhost:9090/notes';
+        const url = 'http://localhost:8000/api/notes';
         const options = {
             method: 'POST',
             body: JSON.stringify({

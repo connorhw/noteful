@@ -20,7 +20,7 @@ class App extends Component {
   } 
   
   componentDidMount() {
-    const folderUrl = 'http://localhost:9090/folders'
+    const folderUrl = 'http://localhost:8000/api/folders'
     fetch(folderUrl, {
       method: 'GET',
     })
@@ -38,7 +38,7 @@ class App extends Component {
         })
       })
 
-    const noteUrl = 'http://localhost:9090/notes'
+    const noteUrl = 'http://localhost:8000/api/notes'
     fetch(noteUrl, {
       method: 'GET',
     })

@@ -16,7 +16,7 @@ function deleteNoteRequest() {
 class NotePageMain extends Component {
   static contextType = NotesContext;
   deleteNote = (noteId) => {
-    const noteUrl = `http://localhost:9090/notes/${noteId}`
+    const noteUrl = `http://localhost:8000/api/notes/${noteId}`
     fetch(noteUrl, {
       method: 'DELETE',
     })
