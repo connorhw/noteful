@@ -16,7 +16,7 @@ class AddFolder extends Component {
         const options = {
             method: 'POST',
             body: JSON.stringify({
-                "name": folderName
+                "folder_name": folderName
             }),
             headers: {
                 'content-type':'application/json',
