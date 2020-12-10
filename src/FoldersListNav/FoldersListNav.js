@@ -16,7 +16,7 @@ class  FoldersListNav extends Component{
                     <li key={folder.id}>
                         <Folder
                         id={folder.id}
-                        name={folder.name}
+                        name={folder.folder_name}
                         />
                     </li>
                     )}
