@@ -54,7 +54,7 @@ class AddNote extends Component {
 
         let folderList = this.props.folders;
         let optionItems = folderList.map((item) => 
-            <option key={item.id}>{item.name}</option>
+            <option key={item.id}>{item.folder_name}</option>
         );
         return (
             <form className='addNote-form' onSubmit={e => this.handleSubmit(e)}>
