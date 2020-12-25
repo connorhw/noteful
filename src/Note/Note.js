@@ -5,9 +5,9 @@ import '../Note/Note.css'
 export default function Note(props) {
     return (
         <div className='Note'>
-            <Link to={`/note/${props.id}`}>
-              <p>{props.name}</p>
-              {props.modified}
+            <Link to={`/notes/${props.id}`}>
+              <p>{props.title}</p>
+              {props.date_published}
             </Link>
         </div>
     );

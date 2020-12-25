@@ -6,15 +6,19 @@ import NotesContext from '../NotesContext'
 class NotesInFolder extends Component {
     static contextType = NotesContext;
     render() {
-        //console.log(this.context)
+        console.log(this.context)
+        //console.log(this.context.notes)
+        //console.log(this.props)
         const filteredNotes = this.context.notes.filter((note) => {
-            return (this.props.match.params.folderId === note.folderId)
+            
+            return (this.props.match.params.folderId == note.folderId)
         })
         
         return (
             <section className='NoteListByFolder'>
             <h3>Notes for folder: </h3>
             <ul className='note-list-by-folder'>
+                {console.log(filteredNotes)}
                 {filteredNotes.map( note => 
                 <li key={note.id}>
                     <Note 

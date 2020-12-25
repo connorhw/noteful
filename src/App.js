@@ -29,7 +29,7 @@ class App extends Component {
           throw new Error(response.status)
         }
         const res = response.json()
-        //console.log(res)
+        console.log(res)
         return res;
       })
       .then(res => {
@@ -47,7 +47,7 @@ class App extends Component {
           throw new Error(response.status)
         }
         const res = response.json()
-        console.log(res)
+        //console.log(res)
         return res;
       })
       .then(res => {
@@ -100,7 +100,7 @@ class App extends Component {
             />
             <NotesError>
               <Route
-                path='/note/:noteId'
+                path='/notes/:noteId'
                 component={NotePageMain}
               />
               <Route
