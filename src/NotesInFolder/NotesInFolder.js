@@ -10,7 +10,7 @@ class NotesInFolder extends Component {
         //console.log(this.context.notes)
         //console.log(this.props)
         const filteredNotes = this.context.notes.filter((note) => {
-            return (this.props.match.params.folderId == note.folder_id)
+            return (this.props.match.params.folderId === note.folder_id)
         })
         
         return (

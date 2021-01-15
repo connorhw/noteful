@@ -20,7 +20,7 @@ class App extends Component {
   } 
   
   componentDidMount() {
-    const folderUrl = 'https://frozen-escarpment-68883.herokuapp.com/api/folders'
+    const folderUrl = 'https://obscure-shore-53233.herokuapp.com/api/folders'
     fetch(folderUrl, {
       method: 'GET',
     })
@@ -38,7 +38,7 @@ class App extends Component {
         })
       })
 
-    const noteUrl = 'https://frozen-escarpment-68883.herokuapp.com/api/notes'
+    const noteUrl = 'https://obscure-shore-53233.herokuapp.com/api/notes'
     fetch(noteUrl, {
       method: 'GET',
     })
