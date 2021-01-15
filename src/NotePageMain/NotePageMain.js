@@ -16,7 +16,7 @@ function deleteNoteRequest() {
 class NotePageMain extends Component {
   static contextType = NotesContext;
   deleteNote = (noteId) => {
-    const noteUrl = `https://frozen-escarpment-68883.herokuapp.com/api/notes/${noteId}`
+    const noteUrl = `https://obscure-shore-53233.herokuapp.com/api/notes/${noteId}`
     fetch(noteUrl, {
       method: 'DELETE',
     })
