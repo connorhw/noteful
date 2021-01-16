@@ -12,18 +12,18 @@ class AddNote extends Component {
         const noteName = event.target.noteName.value;
         const noteContent = event.target.noteContent.value;
         const noteFolder = event.target.noteFolder.value;
+        
         let newFolder = this.props.folders.find((folder) => {
-            return folder.name === noteFolder;
+            return folder.folder_name === noteFolder;
         })
-        console.log(newFolder);
-        console.log(this.props.folders)
+        
         const url = 'https://pacific-springs-50434.herokuapp.com/api/notes';
         const options = {
             method: 'POST',
             body: JSON.stringify({
-                "name": noteName,
+                "title": noteName,
                 "content": noteContent,
-                "folderId": newFolder.id,
+                "folder_id": newFolder.id,
             }),
             headers: {
                 'content-type':'application/json',
@@ -61,7 +61,7 @@ class AddNote extends Component {
                 <h3>New Note</h3>
                 <div className='form-group-name'>
                     <label>Name of Note: </label>
-                    <input name='noteName' id='noteName' required/>
+                    <input type="text" name='noteName' id='noteName' required/>
                 </div>
                 <br />
                 <div className='form-group-content'>

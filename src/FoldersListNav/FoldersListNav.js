@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 class  FoldersListNav extends Component{
     render() {
-        //console.log(this.props.folders)
+        console.log(this.props.folders)
         return (
             <section className='FoldersListNav'>
                 <h2>Folders!</h2>

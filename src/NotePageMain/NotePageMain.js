@@ -27,18 +27,13 @@ class NotePageMain extends Component {
   }
 
   render() {
-    //console.log(this.context.notes)
-    //console.log(this.props)
-    //console.log(note.id)
     const selected = this.context.notes.find(note => {
-      //console.log(this.props.match.params)
-      //console.log(note)
-      return (this.props.match.params.noteId === note.id) 
+      return (this.props.match.params.noteId == note.id) 
     })
     
     return (
         <div>
-          {/*console.log(selected)*/}
+          {console.log(selected)}
           <section className='NotePageMain'>
               <h2>{selected.title}</h2>
               <div>{selected.date_published}</div>
