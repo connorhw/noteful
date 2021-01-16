@@ -12,7 +12,7 @@ class AddFolder extends Component {
         const folderName = event.target.folderName.value;
         console.log('New Folder Name: ', folderName);
         
-        const url = 'https://obscure-shore-53233.herokuapp.com/api/folders';
+        const url = 'https://pacific-springs-50434.herokuapp.com/api/folders';
         const options = {
             method: 'POST',
             body: JSON.stringify({

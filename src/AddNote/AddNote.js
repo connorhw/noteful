@@ -17,7 +17,7 @@ class AddNote extends Component {
         })
         console.log(newFolder);
         console.log(this.props.folders)
-        const url = 'https://obscure-shore-53233.herokuapp.com/api/notes';
+        const url = 'https://pacific-springs-50434.herokuapp.com/api/notes';
         const options = {
             method: 'POST',
             body: JSON.stringify({
